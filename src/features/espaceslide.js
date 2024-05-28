@@ -2,7 +2,6 @@
 import Swiper from 'swiper/bundle';
 
 function espaceSlide() {
-    let timeout = null;
     const espaceSlider = document.querySelector('.espace-hero_component');
     const prev = document.querySelector('#espaceslide-prev')
     const next = document.querySelector('#espaceslide-next')
@@ -40,16 +39,9 @@ function espaceSlide() {
         });
 
         // start autoplay after 1.5s
-        timeout = setTimeout(() => {
+        setTimeout(() => {
             swiper.autoplay.start();
         }, 1500);
-    }
-    
-    // clear timeout on return
-    return () => {
-        if (timeout) {
-          clearTimeout(timeout);
-        }
     }
 }
 

@@ -7,7 +7,6 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 gsap.registerPlugin(ScrollSmoother);
 
 function homeslider() {
-    let timeout = null;
     const homeSlider = document.querySelector('.homeslide_component');
     const prev = document.querySelector('#homeslide-prev')
     const next = document.querySelector('#homeslide-next')
@@ -89,16 +88,9 @@ function homeslider() {
         });
 
         // start autoplay after 1.5s
-        timeout = setTimeout(() => {
+        setTimeout(() => {
             swiper.autoplay.start();
         }, 1500);
-    }
-  
-    // clear timeout on return
-    return () => {
-        if (timeout) {
-          clearTimeout(timeout);
-        }
     }
 }
 
