@@ -73,7 +73,7 @@ function homeslider() {
 
 
             }
-        });
+        }).init();
     }
     /* eslint-enable no-unused-vars */
 }
