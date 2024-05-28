@@ -85,7 +85,9 @@ function homeslider() {
 
 
             }
-        }).autoplay.start();
+        });
+
+        homeSlider.swiper.autoplay.start();
     }
 }
 

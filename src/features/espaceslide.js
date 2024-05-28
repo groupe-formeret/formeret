@@ -36,7 +36,9 @@ function espaceSlide() {
                     });
                 },
             }
-        }).autoplay.start();
+        });
+
+        espaceSlider.swiper.autoplay.start();
     }
 }
 
