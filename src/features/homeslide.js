@@ -14,7 +14,12 @@ function homeslider() {
     const header = document.querySelector('header.header_component')
 
     if (homeSlider) {
-        const swiper = new Swiper(homeSlider, {
+        new Swiper(homeSlider, {
+            autoplay: {
+                delay: 5000,
+                pauseOnMouseEnter: true,
+                disableOnInteraction: false,
+            },
             speed: 500,
             effect: 'fade',
             loop: true,

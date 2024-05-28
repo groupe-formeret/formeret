@@ -9,7 +9,12 @@ function espaceSlide() {
 
 
     if (espaceSlider) {
-        const swiper = new Swiper(espaceSlider, {
+        new Swiper(espaceSlider, {
+            autoplay: {
+                delay: 5000,
+                pauseOnMouseEnter: true,
+                disableOnInteraction: false,
+            },
             speed: 500,
             effect: 'fade',
             loop: true,
