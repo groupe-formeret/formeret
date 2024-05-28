@@ -13,7 +13,7 @@ function homeslider() {
     const header = document.querySelector('header.header_component')
 
     if (homeSlider) {
-        const swiper = new Swiper(homeSlider, {
+        new Swiper(homeSlider, {
             autoplay: {
                 delay: 5000,
                 pauseOnMouseEnter: true,
@@ -85,12 +85,7 @@ function homeslider() {
 
 
             }
-        });
-
-        // start autoplay after 1.5s
-        setTimeout(() => {
-            swiper.autoplay.start();
-        }, 1500);
+        }).autoplay.start();
     }
 }
 

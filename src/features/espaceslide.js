@@ -8,7 +8,7 @@ function espaceSlide() {
 
 
     if (espaceSlider) {
-        const swiper = new Swiper(espaceSlider, {
+        new Swiper(espaceSlider, {
             autoplay: {
                 delay: 5000,
                 pauseOnMouseEnter: true,
@@ -36,12 +36,7 @@ function espaceSlide() {
                     });
                 },
             }
-        });
-
-        // start autoplay after 1.5s
-        setTimeout(() => {
-            swiper.autoplay.start();
-        }, 1500);
+        }).autoplay.start();
     }
 }
 
