@@ -2,14 +2,14 @@
 import Swiper from 'swiper/bundle';
 
 function espaceSlide() {
-    /* eslint-disable no-unused-vars */
+    let timeout = null;
     const espaceSlider = document.querySelector('.espace-hero_component');
     const prev = document.querySelector('#espaceslide-prev')
     const next = document.querySelector('#espaceslide-next')
 
 
     if (espaceSlider) {
-        new Swiper(espaceSlider, {
+        const swiper = new Swiper(espaceSlider, {
             autoplay: {
                 delay: 5000,
                 pauseOnMouseEnter: true,
@@ -25,18 +25,32 @@ function espaceSlide() {
                 prevEl: prev
             },
             on: {
-
-                /* on each transition start, I will to move scroll in view to the class homeslide_component */
-                slideChangeTransitionStart: function () {
+                /* on each navigation trigger, I will to move scroll in view to the class homeslide_component */
+                navigationNext: () => {
                     espaceSlider.scrollIntoView({
                         behavior: 'smooth'
                     });
-                }
-
+                },
+                navigationPrev: () => {
+                    espaceSlider.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                },
             }
-        }).init();
+        });
+
+        // start autoplay after 1.5s
+        timeout = setTimeout(() => {
+            swiper.autoplay.start();
+        }, 1500);
     }
-    /* eslint-enable no-unused-vars */
+    
+    // clear timeout on return
+    return () => {
+        if (timeout) {
+          clearTimeout(timeout);
+        }
+    }
 }
 
 export default espaceSlide

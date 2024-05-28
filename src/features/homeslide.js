@@ -7,14 +7,14 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 gsap.registerPlugin(ScrollSmoother);
 
 function homeslider() {
-    /* eslint-disable no-unused-vars */
+    let timeout = null;
     const homeSlider = document.querySelector('.homeslide_component');
     const prev = document.querySelector('#homeslide-prev')
     const next = document.querySelector('#homeslide-next')
     const header = document.querySelector('header.header_component')
 
     if (homeSlider) {
-        new Swiper(homeSlider, {
+        const swiper = new Swiper(homeSlider, {
             autoplay: {
                 delay: 5000,
                 pauseOnMouseEnter: true,
@@ -45,20 +45,33 @@ function homeslider() {
                     }
                 },
 
-                /* on each transition start, I will to move scroll in view to the class homeslide_component by using scrollsmoother*/
-                slideChange: function () {
-                    if (!Utility.isMobile()) {
-                        // Use Lenis from UTility Class to scroll to the top of the slider after each transition
-                        Utility.createSmoother().scrollTo(homeSlider, true, "top top");
-                        console.log('change')
-                    } else {
-                        homeSlider.scrollIntoView({
-                            block: 'start',
-                            inline: 'nearest',
-                            behavior: 'smooth'
+                /* on each navigation trigger, I will to move scroll in view to the class homeslide_component by using scrollsmoother*/
+                navigationNext: () => {
+                  if (!Utility.isMobile()) {
+                    // Use Lenis from UTility Class to scroll to the top of the slider after each transition
+                    Utility.createSmoother().scrollTo(homeSlider, true, "top top");
+                    console.log('next')
+                  } else {
+                    homeSlider.scrollIntoView({
+                        block: 'start',
+                        inline: 'nearest',
+                        behavior: 'smooth'
+                    });
+                  }
+                },
 
-                        });
-                    }
+                navigationPrev: () => {
+                  if (!Utility.isMobile()) {
+                    // Use Lenis from UTility Class to scroll to the top of the slider after each transition
+                    Utility.createSmoother().scrollTo(homeSlider, true, "top top");
+                    console.log('prev')
+                  } else {
+                    homeSlider.scrollIntoView({
+                        block: 'start',
+                        inline: 'nearest',
+                        behavior: 'smooth'
+                    });
+                  }
                 },
 
                 /* on each transition end, Hide the header */
@@ -73,9 +86,20 @@ function homeslider() {
 
 
             }
-        }).init();
+        });
+
+        // start autoplay after 1.5s
+        timeout = setTimeout(() => {
+            swiper.autoplay.start();
+        }, 1500);
     }
-    /* eslint-enable no-unused-vars */
+  
+    // clear timeout on return
+    return () => {
+        if (timeout) {
+          clearTimeout(timeout);
+        }
+    }
 }
 
 export default homeslider
