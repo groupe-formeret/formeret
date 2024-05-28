@@ -12,7 +12,7 @@ import headerScroll from './features/headerScroll'
 import roomSlide from './features/roomSlide'
 import datepicker from './features/datepicker'
 
-window.on('load', () => {
+window.addEventListener('load', () => {
   // background()
   homeslider()
   espaceSlide()
