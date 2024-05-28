@@ -12,17 +12,19 @@ import headerScroll from './features/headerScroll'
 import roomSlide from './features/roomSlide'
 import datepicker from './features/datepicker'
 
-// background()
-homeslider()
-espaceSlide()
-splitSlides()
-form()
-homeSpaceCusor()
-ScrollSmootherInit()
-titleAnim()
-headerScroll()
-roomSlide()
-datepicker()
+window.on('load', () => {
+  // background()
+  homeslider()
+  espaceSlide()
+  splitSlides()
+  form()
+  homeSpaceCusor()
+  ScrollSmootherInit()
+  titleAnim()
+  headerScroll()
+  roomSlide()
+  datepicker()
+});
 
 console.log('viteJS ♥ webflow')
 console.log('Formeret by #CosaVostra')
