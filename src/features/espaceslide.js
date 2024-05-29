@@ -10,7 +10,7 @@ function espaceSlide() {
     if (espaceSlider) {
         new Swiper(espaceSlider, {
             autoplay: {
-                delay: 5000,
+                delay: 2000,
                 pauseOnMouseEnter: true,
                 disableOnInteraction: false,
             },
