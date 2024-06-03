@@ -15,7 +15,7 @@ function homeslider() {
     if (homeSlider) {
         new Swiper(homeSlider, {
             autoplay: {
-                delay: 2000,
+                delay: 5000,
                 pauseOnMouseEnter: true,
                 disableOnInteraction: false,
             },
